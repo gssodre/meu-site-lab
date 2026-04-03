@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SSH - Laboratório SI</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>SSH</h1>
+    <p>Acesso remoto ao Ubuntu Server dentro do laboratório.</p>
+  </header>
+
+  <nav>
+    <a href="index.html">Início</a>
+    <a href="rede.html">Rede</a>
+    <a href="ssh.html">SSH</a>
+    <a href="apache.html">Apache</a>
+    <a href="nmap.html">Nmap</a>
+    <a href="logs.html">Logs</a>
+    <a href="erros.html">Erros</a>
+  </nav>
+
+  <main>
+    <section class="card">
+      <h2>Objetivo desta página</h2>
+      <p>
+        Aqui eu registro tudo que estou aprendendo sobre acesso remoto via SSH:
+        conexão, autenticação, máquina de origem, máquina de destino e erros comuns.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>O que é SSH</h2>
+      <p>
+        SSH é um jeito de entrar remotamente em outra máquina pelo terminal.
+        No meu laboratório, eu uso isso para acessar o Ubuntu Server a partir do Mint ou do Debian.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>Comando principal</h2>
+      <p><strong>Máquina:</strong> Linux Mint Host ou Debian Cliente</p>
+      <pre>ssh ubuntu@192.168.56.12</pre>
+
+      <p><strong>O que deve aparecer:</strong></p>
+      <p>
+        Se der certo, o terminal muda de algo como <code>mint@host</code>
+        para <code>ubuntu@servidor</code>.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>Como eu penso antes de usar SSH</h2>
+      <ul>
+        <li>Primeiro confirmo o IP do servidor</li>
+        <li>Depois confirmo se estou na máquina certa</li>
+        <li>Depois testo a comunicação da rede</li>
+        <li>Só então tento o acesso SSH</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>Comandos úteis</h2>
+
+      <h3>Entrar no servidor</h3>
+      <p><strong>Máquina:</strong> Mint Host ou Debian Cliente</p>
+      <pre>ssh ubuntu@192.168.56.12</pre>
+
+      <h3>Ver se o serviço SSH está ativo</h3>
+      <p><strong>Máquina:</strong> Ubuntu Server</p>
+      <pre>sudo systemctl status ssh</pre>
+      <p><strong>O que deve aparecer:</strong> algo como <code>active (running)</code>.</p>
+
+      <h3>Ver tentativas e acessos no log</h3>
+      <p><strong>Máquina:</strong> Ubuntu Server</p>
+      <pre>sudo tail -f /var/log/auth.log</pre>
+      <p>
+        <strong>O que deve aparecer:</strong> registros de login, chave pública aceita, desconexão ou falha de autenticação.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>Erros comuns</h2>
+
+      <h3>No route to host</h3>
+      <p>
+        A máquina não conseguiu alcançar o IP do servidor.
+      </p>
+
+      <h3>Connection refused</h3>
+      <p>
+        A máquina alcançou o servidor, mas o serviço SSH não estava ouvindo na porta 22.
+      </p>
+
+      <h3>Permission denied</h3>
+      <p>
+        O IP e o serviço estavam certos, mas a autenticação falhou.
+      </p>
+
+      <h3>Rodar o comando na máquina errada</h3>
+      <p>
+        Antes de digitar qualquer comando, eu preciso olhar o prompt e confirmar onde estou.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>Teste real de autenticação SSH com usuário inválido</h2>
+
+      <p>
+        Fiz um teste tentando acessar o servidor com um usuário que não existia no sistema,
+        para observar o comportamento do SSH e depois analisar os logs.
+      </p>
+
+      <h3>Comando usado</h3>
+      <p><strong>Máquina:</strong> Linux Mint Host</p>
+      <pre>ssh ubuntu-teste@192.168.56.12</pre>
+
+      <h3>O que apareceu no terminal</h3>
+      <pre>mint@host:~$ ssh ubuntu-teste@192.168.56.12
+ubuntu-teste@192.168.56.12's password:
+Permission denied, please try again.
+ubuntu-teste@192.168.56.12's password:
+12
+Permission denied, please try again.
+ubuntu-teste@192.168.56.12's password:
+12ubuntu-teste@192.168.56.12: Permission denied (publickey,password).</pre>
+
+      <h3>O que aconteceu</h3>
+      <p>
+        O acesso falhou porque tentei autenticar com o usuário <code>ubuntu-teste</code>,
+        mas esse usuário não existe.
+      </p>
+
+      <h3>O que aprendi</h3>
+      <ul>
+        <li>SSH pode falhar por senha errada ou por usuário inexistente</li>
+        <li>Mesmo sem login bem-sucedido, o sistema registra a tentativa</li>
+        <li>O log mostra de qual IP a tentativa veio</li>
+      </ul>
+
+      <h3>Resumo técnico do log</h3>
+      <p><strong>Máquina:</strong> Ubuntu Server</p>
+      <pre>abr 03 11:39:21 servidor sshd[2203]: pam_unix(sshd:session): session opened for user ubuntu(uid=1000) by ubuntu(uid=0)
+abr 03 11:39:22 servidor sshd[2203]: pam_unix(sshd:session): session closed for user ubuntu
+abr 03 12:05:30 servidor sshd[2318]: Invalid user ubuntu-teste from 192.168.56.1 port 60502
+abr 03 12:05:31 servidor sshd[2318]: pam_unix(sshd:auth): check pass; user unknown
+abr 03 12:05:31 servidor sshd[2318]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=192.168.56.1
+abr 03 12:05:33 servidor sshd[2318]: Failed password for invalid user ubuntu-teste from 192.168.56.1 port 60502 ssh2
+abr 03 12:05:37 servidor sshd[2318]: pam_unix(sshd:auth): check pass; user unknown
+abr 03 12:05:38 servidor sshd[2318]: Failed password for invalid user ubuntu-teste from 192.168.56.1 port 60502 ssh2
+abr 03 12:05:42 servidor sshd[2318]: pam_unix(sshd:auth): check pass; user unknown
+abr 03 12:05:43 servidor sshd[2318]: Failed password for invalid user ubuntu-teste from 192.168.56.1 port 60502 ssh2
+abr 03 12:05:44 servidor sshd[2318]: Connection closed by invalid user ubuntu-teste 192.168.56.1 port 60502 [preauth]
+abr 03 12:05:44 servidor sshd[2318]: PAM 2 more authentication failures; logname= uid=0 euid=0 tty=ssh ruser= rhost=192.168.56.1</pre>
+
+      <h3>Interpretação do log</h3>
+      <ul>
+        <li><strong>Invalid user:</strong> o usuário não existe</li>
+        <li><strong>Failed password:</strong> houve tentativa de autenticação</li>
+        <li><strong>rhost=192.168.56.1:</strong> a tentativa veio do Mint Host</li>
+        <li><strong>Connection closed:</strong> a sessão foi encerrada sem sucesso</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>Resumo do que aprendi</h2>
+      <p>
+        SSH não é só “entrar na máquina”. Ele também ensina rede, autenticação,
+        serviço ativo, logs e visão de administração real de servidor.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    SSH no laboratório
+  </footer>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apache - Laboratório SI</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Apache</h1>
+    <p>Publicação do site no Ubuntu Server.</p>
+  </header>
+
+  <nav>
+    <a href="index.html">Início</a>
+    <a href="rede.html">Rede</a>
+    <a href="ssh.html">SSH</a>
+    <a href="apache.html">Apache</a>
+    <a href="nmap.html">Nmap</a>
+    <a href="logs.html">Logs</a>
+    <a href="erros.html">Erros</a>
+  </nav>
+
+  <main>
+    <section class="card">
+      <h2>Objetivo</h2>
+      <p>Hospedar páginas HTML no Ubuntu Server usando Apache.</p>
+    </section>
+
+    <section class="card">
+      <h2>Arquivos publicados</h2>
+      <ul>
+        <li><code>index.html</code></li>
+        <li><code>rede.html</code></li>
+        <li><code>ssh.html</code></li>
+        <li><code>style.css</code></li>
+        <li><code>foto.jpg</code></li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>Comandos usados</h2>
+      <pre>sudo mv /tmp/index.html /var/www/html/
+sudo mv /tmp/rede.html /var/www/html/
+sudo mv /tmp/ssh.html /var/www/html/
+sudo mv /tmp/style.css /var/www/html/
+sudo mv /tmp/foto.jpg /var/www/html/
+ls -l /var/www/html/
+curl http://localhost</pre>
+    </section>
+  </main>
+
+  <footer>
+    Apache no laboratório
+  </footer>
+</body>
+</html>

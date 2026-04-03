@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Laboratório SI</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Laboratório de Segurança da Informação</h1>
+    <p>Meu site-tutorial com tudo que estou praticando nas VMs.</p>
+    <div class="top-links">
+      <a href="rede.html">Rede</a>
+      <a href="ssh.html">SSH</a>
+      <a href="apache.html">Apache</a>
+      <a href="nmap.html">Nmap</a>
+      <a href="logs.html">Logs</a>
+      <a href="erros.html">Erros</a>
+    </div>
+  </header>
+
+  <nav>
+    <a href="index.html">Início</a>
+    <a href="rede.html">Rede</a>
+    <a href="ssh.html">SSH</a>
+    <a href="apache.html">Apache</a>
+    <a href="nmap.html">Nmap</a>
+    <a href="logs.html">Logs</a>
+    <a href="erros.html">Erros</a>
+  </nav>
+
+  <main>
+    <section class="card">
+      <h2>Sobre este site</h2>
+      <p>Este site é meu manual prático de laboratório.</p>
+      <p>Aqui eu vou registrar tudo que faço nas minhas VMs:</p>
+      <ul>
+        <li>qual máquina usei</li>
+        <li>qual comando rodei</li>
+        <li>o que apareceu na tela</li>
+        <li>o que deu errado</li>
+        <li>como corrigi</li>
+      </ul>
+    </section>
+
+<section class="card">
+  <h2>Comandos que mais uso</h2>
+
+  <h3>Ver IP da máquina</h3>
+  <pre>ip a
+hostname -I</pre>
+
+  <h3>Acessar o servidor por SSH</h3>
+  <pre>ssh ubuntu@192.168.56.12</pre>
+
+  <h3>Testar o site</h3>
+  <pre>curl http://192.168.56.12
+curl -I http://192.168.56.12/foto.jpg</pre>
+
+  <h3>Enumerar o servidor</h3>
+  <pre>nmap -sV 192.168.56.12</pre>
+</section>
+    <section class="card">
+      <h2>Minha foto no laboratório</h2>
+      <p>Imagem publicada no Ubuntu Server como parte do teste prático de hospedagem.</p>
+      <img src="foto.jpg" alt="Foto do laboratório" style="max-width: 320px; width: 100%; border-radius: 14px; border: 3px solid #334155;">
+    </section>
+
+    <section class="card">
+      <h2>Ambiente</h2>
+      <div class="tag">Linux Mint Host</div>
+      <div class="tag">Ubuntu Server</div>
+      <div class="tag">Debian Cliente</div>
+      <div class="tag">VirtualBox</div>
+      <div class="tag">Host-Only</div>
+      <div class="tag">NAT</div>
+    </section>
+  </main>
+
+  <footer>
+    Meu tutorial prático de laboratório
+  </footer>
+</body>
+</html>

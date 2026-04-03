@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nmap - Laboratório SI</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Nmap</h1>
+    <p>Enumeração inicial do servidor no laboratório.</p>
+  </header>
+
+  <nav>
+    <a href="index.html">Início</a>
+    <a href="rede.html">Rede</a>
+    <a href="ssh.html">SSH</a>
+    <a href="apache.html">Apache</a>
+    <a href="nmap.html">Nmap</a>
+    <a href="logs.html">Logs</a>
+    <a href="erros.html">Erros</a>
+  </nav>
+
+  <main>
+    <section class="card">
+      <h2>Comando principal</h2>
+      <pre>nmap -sV 192.168.56.12</pre>
+    </section>
+
+    <section class="card">
+      <h2>O que esse comando faz</h2>
+      <ul>
+        <li>descobre portas abertas</li>
+        <li>tenta identificar serviços</li>
+        <li>tenta mostrar versões</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>Exemplo de resultado</h2>
+      <pre>PORT   STATE SERVICE VERSION
+22/tcp open  ssh
+80/tcp open  http    Apache httpd</pre>
+    </section>
+  </main>
+
+  <footer>
+    Nmap no laboratório
+  </footer>
+</body>
+</html>

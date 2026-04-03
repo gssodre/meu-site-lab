@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Logs - Laboratório SI</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Logs</h1>
+    <p>Análise dos registros do Apache no Ubuntu Server.</p>
+  </header>
+
+  <nav>
+    <a href="index.html">Início</a>
+    <a href="rede.html">Rede</a>
+    <a href="ssh.html">SSH</a>
+    <a href="apache.html">Apache</a>
+    <a href="nmap.html">Nmap</a>
+    <a href="logs.html">Logs</a>
+    <a href="erros.html">Erros</a>
+  </nav>
+
+  <main>
+    <section class="card">
+      <h2>Arquivos importantes</h2>
+      <ul>
+        <li><code>/var/log/apache2/access.log</code></li>
+        <li><code>/var/log/apache2/error.log</code></li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>Comandos úteis</h2>
+      <pre>sudo tail -f /var/log/apache2/access.log
+sudo tail -f /var/log/apache2/error.log</pre>
+    </section>
+
+    <section class="card">
+      <h2>O que observar</h2>
+      <ul>
+        <li>quem acessou</li>
+        <li>qual arquivo foi pedido</li>
+        <li>se houve erro 404</li>
+        <li>data e hora do acesso</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    Logs do laboratório
+  </footer>
+</body>
+</html>

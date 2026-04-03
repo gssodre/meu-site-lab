@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rede - Laboratório SI</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Rede das VMs</h1>
+    <p>Configuração, comunicação e testes de conectividade no laboratório.</p>
+  </header>
+
+  <nav>
+    <a href="index.html">Início</a>
+    <a href="rede.html">Rede</a>
+    <a href="ssh.html">SSH</a>
+    <a href="apache.html">Apache</a>
+    <a href="nmap.html">Nmap</a>
+    <a href="logs.html">Logs</a>
+    <a href="erros.html">Erros</a>
+  </nav>
+
+  <main>
+    <section class="card">
+      <h2>Objetivo desta página</h2>
+      <p>
+        Aqui eu registro tudo que estou aprendendo sobre rede no meu laboratório:
+        IP, interface, Host-Only, NAT, comunicação entre máquinas e testes básicos.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>Máquinas do laboratório</h2>
+      <ul>
+        <li><strong>Linux Mint Host:</strong> máquina principal</li>
+        <li><strong>Ubuntu Server:</strong> servidor do laboratório</li>
+        <li><strong>Debian Cliente:</strong> máquina de testes</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>Tipos de rede que usei</h2>
+
+      <h3>Host-Only</h3>
+      <p>
+        Rede interna entre o host e as VMs. Serve para as máquinas se comunicarem
+        dentro do laboratório.
+      </p>
+
+      <h3>NAT</h3>
+      <p>
+        Serve para a VM ter acesso à internet. Normalmente não é usada para uma VM
+        conversar diretamente com outra no laboratório.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>Comandos importantes</h2>
+
+      <h3>Ver interfaces e IPs</h3>
+      <p><strong>Máquina:</strong> qualquer máquina Linux</p>
+      <pre>ip a
+hostname -I</pre>
+      <p>
+        <strong>O que deve aparecer:</strong> nome da interface e o endereço IP da máquina.
+      </p>
+
+      <h3>Ver rota padrão</h3>
+      <p><strong>Máquina:</strong> qualquer máquina Linux</p>
+      <pre>ip route</pre>
+      <p>
+        <strong>O que deve aparecer:</strong> gateway padrão e rede usada pela máquina.
+      </p>
+
+      <h3>Testar comunicação com o servidor</h3>
+      <p><strong>Máquina:</strong> Mint Host ou Debian Cliente</p>
+      <pre>ping 192.168.56.12</pre>
+      <p>
+        <strong>O que deve aparecer:</strong> respostas com tempo em ms, mostrando que a máquina alcançou o servidor.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>Como eu penso na rede do laboratório</h2>
+      <ul>
+        <li>Primeiro descubro o IP da máquina</li>
+        <li>Depois vejo em qual interface esse IP está</li>
+        <li>Depois testo comunicação com <code>ping</code></li>
+        <li>Se não comunicar, eu verifico IP, rota, interface e tipo de rede no VirtualBox</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>Erros comuns que já aconteceram</h2>
+
+      <h3>No route to host</h3>
+      <p>
+        Significa que a máquina não conseguiu alcançar o IP informado.
+      </p>
+
+      <h3>Conexão recusada</h3>
+      <p>
+        Significa que a máquina foi alcançada, mas não havia serviço ouvindo naquela porta.
+      </p>
+
+      <h3>Rodar comando na máquina errada</h3>
+      <p>
+        Antes de rodar qualquer comando, eu preciso conferir se estou no <code>mint@host</code>
+        ou no <code>ubuntu@servidor</code>.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>Resumo do que aprendi</h2>
+      <p>
+        Sem rede funcionando, não existe laboratório. Por isso IP, interface, rota e conectividade
+        são a base de tudo que estou fazendo.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    Rede no laboratório
+  </footer>
+</body>
+</html>
