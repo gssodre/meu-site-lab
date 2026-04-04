@@ -7,16 +7,14 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <h1>Laboratório de Segurança da Informação</h1>
-    <p>Meu laboratório prático de Segurança da Informação com Linux, redes, SSH, Apache e análise de serviços em VMs.</p>
-    <div class="top-links">
-      <a href="rede.html">Rede</a>
-      <a href="ssh.html">SSH</a>
-      <a href="apache.html">Apache</a>
-      <a href="nmap.html">Nmap</a>
-      <a href="logs.html">Logs</a>
-      <a href="erros.html">Erros</a>
+
+  <header class="hero">
+    <div class="container">
+      <h1>Laboratório de Segurança da Informação</h1>
+      <p class="subtitle">
+        Estudante de Segurança da Informação documentando laboratórios práticos com Linux, redes, SSH, Apache e análise de serviços em máquinas virtuais.
+      </p>
+      <a class="btn" href="#projetos">Ver meus testes</a>
     </div>
   </header>
 
@@ -30,61 +28,102 @@
     <a href="erros.html">Erros</a>
   </nav>
 
-  <main>
+  <main class="container">
+
     <section class="card">
       <h2>Sobre este site</h2>
-      <p>Este site é meu manual prático de laboratório.</p>
-      <p>Aqui eu vou registrar tudo que faço nas minhas VMs:</p>
+      <p>Este site é meu laboratório prático publicado na internet.</p>
+      <p>Aqui eu documento o que estou estudando em Segurança da Informação de forma real:</p>
       <ul>
         <li>qual máquina usei</li>
         <li>qual comando rodei</li>
         <li>o que apareceu na tela</li>
-        <li>o que deu errado</li>
-        <li>como corrigi</li>  
+        <li>qual erro encontrei</li>
+        <li>como corrigi</li>
       </ul>
-      <h3>Máquinas do laboratório</h3>
-      <ul>
-       <li>Debian Servidor - 192.168.56.12</li>
-       <li>Ubuntu Servidor - 192.168.56.13</li>
-       <li>Debian Gráfico - cliente de testes</li>
-      </ul>
+      <p>A ideia é transformar estudo em prática e prática em portfólio.</p>
     </section>
 
-<section class="card">
-  <h2>Comandos que mais uso</h2>
+    <section class="card">
+      <h2>Quem sou eu</h2>
+      <p>Sou estudante de Segurança da Informação e estou construindo minha base com Linux, redes, servidores e testes em ambiente controlado.</p>
+      <p>Meu foco é aprender fazendo, repetindo e entendendo cada etapa do processo.</p>
+    </section>
 
-  <h3>Acessar o Debian servidor por SSH</h3>
-  <pre>ssh debian@192.168.56.12</pre>
+    <section class="card">
+      <h2>Meu laboratório</h2>
+      <ul>
+        <li><strong>Host:</strong> Linux Mint</li>
+        <li><strong>VM 1:</strong> Debian Servidor - 192.168.56.12</li>
+        <li><strong>VM 2:</strong> Ubuntu Servidor - 192.168.56.13</li>
+        <li><strong>VM 3:</strong> Debian Gráfico - cliente de testes</li>
+      </ul>
+      <p>Ambiente usado para praticar comunicação entre máquinas, SSH, Apache, rede Host-Only, NAT e enumeração de serviços.</p>
+    </section>
 
-  <h3>Acessar o servidor por SSH</h3>
-  <pre>ssh ubuntu@192.168.56.13</pre>
+    <section class="card" id="projetos">
+      <h2>Projetos e testes práticos</h2>
 
-  <h3>Testar o site</h3>
-  <pre>curl http://192.168.56.13
+      <div class="project">
+        <h3>Comunicação entre máquinas virtuais</h3>
+        <p>Teste de conectividade entre VMs usando rede interna no VirtualBox.</p>
+      </div>
+
+      <div class="project">
+        <h3>Acesso remoto via SSH</h3>
+        <p>Conexão entre máquinas usando autenticação e acesso remoto no terminal.</p>
+      </div>
+
+      <div class="project">
+        <h3>Servidor Apache no Ubuntu</h3>
+        <p>Publicação de conteúdo web dentro da VM servidor.</p>
+      </div>
+
+      <div class="project">
+        <h3>Enumeração com Nmap</h3>
+        <p>Identificação de portas, serviços e versões rodando no laboratório.</p>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Comandos que mais uso</h2>
+
+      <h3>Acessar o Debian servidor por SSH</h3>
+      <pre>ssh debian@192.168.56.12</pre>
+
+      <h3>Acessar o Ubuntu servidor por SSH</h3>
+      <pre>ssh ubuntu@192.168.56.13</pre>
+
+      <h3>Testar o site</h3>
+      <pre>curl http://192.168.56.13
 curl -I http://192.168.56.13/foto.jpg</pre>
 
-  <h3>Enumerar o servidor</h3>
-  <pre>nmap -sV 192.168.56.13</pre>
-</section>
+      <h3>Enumerar o servidor</h3>
+      <pre>nmap -sV 192.168.56.13</pre>
+    </section>
+
     <section class="card">
       <h2>Minha foto no laboratório</h2>
       <p>Imagem publicada no Ubuntu Server como parte do teste prático de hospedagem.</p>
-      <img src="foto.jpg" alt="Foto do laboratório" style="max-width: 320px; width: 100%; border-radius: 14px; border: 3px solid #334155;">
+      <img src="foto.jpg" alt="Foto do laboratório" class="foto-lab">
     </section>
 
     <section class="card">
       <h2>Ambiente</h2>
       <div class="tag">Linux Mint Host</div>
       <div class="tag">Debian Servidor</div>
+      <div class="tag">Ubuntu Servidor</div>
       <div class="tag">Debian Gráfico</div>
       <div class="tag">VirtualBox</div>
       <div class="tag">Host-Only</div>
       <div class="tag">NAT</div>
     </section>
+
   </main>
 
   <footer>
-    Meu tutorial prático de laboratório
+    Meu portfólio prático de laboratório em Segurança da Informação
   </footer>
+
 </body>
 </html>

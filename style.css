@@ -1,156 +1,170 @@
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 body {
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  background: #0b1120;
-  color: #e5e7eb;
+  background: #0f172a;
+  color: #e2e8f0;
+  font-family: Arial, sans-serif;
   line-height: 1.7;
 }
 
-header {
-  background: linear-gradient(180deg, #111827 0%, #0f172a 100%);
-  border-bottom: 1px solid #334155;
-  padding: 40px 20px 28px;
+.container {
+  width: 92%;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.hero {
+  background: linear-gradient(135deg, #111827, #1e293b);
+  padding: 60px 20px;
   text-align: center;
+  border-bottom: 2px solid #334155;
 }
 
-header h1 {
-  margin: 0 0 12px;
-  font-size: 2.4rem;
+.hero h1 {
+  font-size: 2.2rem;
+  margin-bottom: 15px;
+  color: #38bdf8;
 }
 
-header p {
-  margin: 0 auto;
-  max-width: 900px;
-  font-size: 1.15rem;
+.subtitle {
+  font-size: 1.1rem;
+  max-width: 800px;
+  margin: auto;
   color: #cbd5e1;
 }
 
-.top-links {
-  margin-top: 18px;
-}
-
-.top-links a {
+.btn {
   display: inline-block;
-  margin: 6px;
-  padding: 10px 14px;
+  margin-top: 25px;
+  background: #38bdf8;
+  color: #0f172a;
+  padding: 12px 22px;
   border-radius: 10px;
-  background: #1d4ed8;
-  color: white;
   text-decoration: none;
   font-weight: bold;
+}
+
+.btn:hover {
+  background: #0ea5e9;
 }
 
 nav {
-  position: sticky;
-  top: 0;
-  z-index: 20;
-  background: rgba(15, 23, 42, 0.98);
+  background: #111827;
+  padding: 16px;
+  text-align: center;
   border-bottom: 1px solid #334155;
-  padding: 14px 18px;
 }
 
 nav a {
-  color: #93c5fd;
+  color: #e2e8f0;
   text-decoration: none;
-  margin-right: 16px;
-  display: inline-block;
-  margin-bottom: 8px;
+  margin: 0 12px;
   font-weight: bold;
 }
 
+nav a:hover {
+  color: #38bdf8;
+}
+
 main {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 26px 14px 50px;
+  padding: 30px 0;
 }
 
 .card {
-  background: #111827;
+  background: #1e293b;
+  padding: 25px;
+  margin-bottom: 25px;
+  border-radius: 16px;
   border: 1px solid #334155;
-  border-radius: 18px;
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.28);
-  padding: 24px;
-  margin-bottom: 22px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.25);
 }
 
-h2 {
-  font-size: 1.9rem;
-  margin-top: 0;
-  margin-bottom: 10px;
+.card h2 {
+  color: #38bdf8;
+  margin-bottom: 15px;
+  font-size: 1.6rem;
+}
+
+.card h3 {
   color: #f8fafc;
+  margin-top: 18px;
+  margin-bottom: 10px;
 }
 
-h3 {
-  font-size: 1.3rem;
-  color: #bfdbfe;
-  margin-bottom: 8px;
-}
-
-p, li {
-  font-size: 1.08rem;
+.card p,
+.card li {
+  font-size: 1.05rem;
 }
 
 ul {
-  padding-left: 22px;
+  padding-left: 20px;
+  margin-top: 10px;
+}
+
+pre {
+  background: #0f172a;
+  color: #22c55e;
+  padding: 15px;
+  border-radius: 12px;
+  overflow-x: auto;
+  margin-top: 10px;
+  border: 1px solid #334155;
+}
+
+.project {
+  background: #0f172a;
+  padding: 18px;
+  border-radius: 12px;
+  margin-top: 15px;
+  border: 1px solid #334155;
+}
+
+.foto-lab {
+  max-width: 320px;
+  width: 100%;
+  border-radius: 14px;
+  border: 3px solid #334155;
+  margin-top: 15px;
 }
 
 .tag {
   display: inline-block;
-  background: #1e3a8a;
-  color: #dbeafe;
-  padding: 7px 11px;
-  border-radius: 999px;
-  font-size: 0.92rem;
-  margin-right: 8px;
-  margin-bottom: 8px;
-}
-
-.destaque {
-  color: #facc15;
-  font-weight: bold;
-}
-
-.ok {
-  color: #86efac;
-  font-weight: bold;
-}
-
-.alerta {
-  color: #fca5a5;
-  font-weight: bold;
-}
-
-code {
-  background: #020617;
-  color: #93c5fd;
-  padding: 2px 7px;
-  border-radius: 6px;
-  font-size: 0.96rem;
-}
-
-pre {
-  background: #020617;
+  background: #334155;
   color: #e2e8f0;
-  border: 1px solid #334155;
-  padding: 16px;
-  border-radius: 12px;
-  overflow-x: auto;
-  white-space: pre-wrap;
-  word-break: break-word;
-  font-size: 1rem;
-}
-
-.linha {
-  border-top: 1px solid #334155;
-  margin: 18px 0;
+  padding: 8px 14px;
+  margin: 6px 6px 0 0;
+  border-radius: 999px;
+  font-size: 0.95rem;
 }
 
 footer {
   text-align: center;
-  padding: 26px;
-  border-top: 1px solid #334155;
+  padding: 25px;
+  background: #111827;
   color: #94a3b8;
+  border-top: 1px solid #334155;
+  margin-top: 30px;
+}
+
+@media (max-width: 700px) {
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+  }
+
+  nav a {
+    display: inline-block;
+    margin: 6px 8px;
+  }
+
+  .card {
+    padding: 20px;
+  }
 }
