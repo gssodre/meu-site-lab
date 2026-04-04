@@ -9,7 +9,7 @@
 <body>
   <header>
     <h1>Laboratório de Segurança da Informação</h1>
-    <p>Meu site-tutorial com tudo que estou praticando nas VMs.</p>
+    <p>Meu laboratório prático de Segurança da Informação com Linux, redes, SSH, Apache e análise de serviços em VMs.</p>
     <div class="top-links">
       <a href="rede.html">Rede</a>
       <a href="ssh.html">SSH</a>
@@ -40,16 +40,21 @@
         <li>qual comando rodei</li>
         <li>o que apareceu na tela</li>
         <li>o que deu errado</li>
-        <li>como corrigi</li>
+        <li>como corrigi</li>  
+      </ul>
+      <h3>Máquinas do laboratório</h3>
+      <ul>
+       <li>Debian Servidor - 192.168.56.12</li>
+       <li>Ubuntu Servidor - 192.168.56.13</li>
+       <li>Debian Gráfico - cliente de testes</li>
       </ul>
     </section>
 
 <section class="card">
   <h2>Comandos que mais uso</h2>
 
-  <h3>Ver IP da máquina</h3>
-  <pre>ip a
-hostname -I</pre>
+  <h3>Acessar o Debian servidor por SSH</h3>
+  <pre>ssh debian@192.168.56.12</pre>
 
   <h3>Acessar o servidor por SSH</h3>
   <pre>ssh ubuntu@192.168.56.13</pre>
@@ -70,8 +75,8 @@ curl -I http://192.168.56.13/foto.jpg</pre>
     <section class="card">
       <h2>Ambiente</h2>
       <div class="tag">Linux Mint Host</div>
-      <div class="tag">Ubuntu Server</div>
-      <div class="tag">Debian Cliente</div>
+      <div class="tag">Debian Servidor</div>
+      <div class="tag">Debian Gráfico</div>
       <div class="tag">VirtualBox</div>
       <div class="tag">Host-Only</div>
       <div class="tag">NAT</div>
