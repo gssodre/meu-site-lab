@@ -83,6 +83,58 @@ hostname -I</pre>
     </section>
 
     <section class="card">
+      <h2>Teste prático de DNS</h2>
+      <p>
+        Durante o laboratório no Debian gráfico, foi feito um teste prático alterando
+        manualmente o arquivo <code>/etc/resolv.conf</code>.
+      </p>
+
+      <h3>DNS inválido configurado</h3>
+      <p><strong>Máquina:</strong> Debian gráfico</p>
+      <pre>echo "nameserver 1.2.3.4" | sudo tee /etc/resolv.conf</pre>
+      <p>
+        <strong>O que aconteceu:</strong> a máquina continuou com conectividade IP,
+        mas perdeu a resolução de nomes.
+      </p>
+
+      <h3>Teste de conectividade IP</h3>
+      <p><strong>Máquina:</strong> Debian gráfico</p>
+      <pre>ping -c 2 8.8.8.8</pre>
+      <p>
+        <strong>O que apareceu:</strong> respostas do Google DNS, provando que a máquina
+        ainda conseguia sair para a internet por IP.
+      </p>
+
+      <h3>Teste de atualização com erro</h3>
+      <p><strong>Máquina:</strong> Debian gráfico</p>
+      <pre>sudo apt-get update</pre>
+      <p>
+        <strong>O que apareceu:</strong> erros como
+        <code>Falha temporária resolvendo 'deb.debian.org'</code> e
+        <code>Falha temporária resolvendo 'security.debian.org'</code>.
+      </p>
+
+      <p>
+        Isso provou na prática que o problema não era falta total de conexão,
+        mas sim falha de DNS. Ou seja: a máquina conseguia alcançar IPs,
+        mas não conseguia traduzir nomes em endereços IP.
+      </p>
+
+      <h3>Correção do DNS</h3>
+      <p><strong>Máquina:</strong> Debian gráfico</p>
+      <pre>echo "nameserver 8.8.8.8" | sudo tee /etc/resolv.conf</pre>
+
+      <p>
+        Após corrigir o DNS, o comando <code>apt-get update</code> voltou a funcionar normalmente.
+      </p>
+
+      <p>
+        Esse teste foi importante para diferenciar conectividade IP de resolução DNS
+        dentro do laboratório.
+      </p>
+    </section>
+
+    <section class="card">
       <h2>Como eu penso na rede do laboratório</h2>
       <ul>
         <li>Primeiro descubro o IP da máquina</li>
@@ -115,8 +167,8 @@ hostname -I</pre>
     <section class="card">
       <h2>Resumo do que aprendi</h2>
       <p>
-        Sem rede funcionando, não existe laboratório. Por isso IP, interface, rota e conectividade
-        são a base de tudo que estou fazendo.
+        Sem rede funcionando, não existe laboratório. Por isso IP, interface, rota, gateway,
+        DNS e conectividade são a base de tudo que estou fazendo.
       </p>
     </section>
   </main>
