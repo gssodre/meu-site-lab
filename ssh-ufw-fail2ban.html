@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab - SSH + UFW + Fail2ban</title>
+<style>
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:#0f172a;
+  color:#e5e7eb;
+  max-width:1000px;
+  margin:auto;
+  padding:20px;
+  line-height:1.6;
+  font-size:18px;
+}
+.card{
+  background:#111827;
+  padding:25px;
+  border-radius:16px;
+  margin-bottom:20px;
+  border:1px solid #1f2937;
+}
+h1,h2{color:#38bdf8;}
+code{
+  display:block;
+  background:#020617;
+  padding:12px;
+  border-radius:10px;
+  overflow:auto;
+  margin:10px 0;
+}
+a{
+  color:#22c55e;
+  text-decoration:none;
+}
+</style>
+</head>
+<body>
+
+<div class="card">
+<h1>Lab - Ubuntu Server com SSH + UFW + Fail2ban</h1>
+<p>Projeto prático realizado em máquina virtual para fortalecer acesso remoto seguro e defesa básica do servidor.</p>
+<p><a href="index.html">← Voltar para o início</a></p>
+</div>
+
+<div class="card">
+<h2>Objetivo</h2>
+<p>Configurar um Ubuntu Server com SSH seguro, firewall ativo e proteção contra tentativas de acesso indevido.</p>
+</div>
+
+<div class="card">
+<h2>Ambiente</h2>
+<ul>
+<li>Host: Linux Mint</li>
+<li>VirtualBox</li>
+<li>Ubuntu Server 24.04</li>
+<li>Rede NAT + Host-Only</li>
+</ul>
+</div>
+
+<div class="card">
+<h2>O que foi feito</h2>
+<ul>
+<li>Teclado ajustado para Português do Brasil</li>
+<li>Hostname alterado para <strong>servidor</strong></li>
+<li>Teste de conectividade interna e internet</li>
+<li>SSH funcionando entre máquinas</li>
+<li>Chave ED25519 criada</li>
+<li>Login por chave pública configurado</li>
+<li>Autenticação por senha desativada</li>
+<li>UFW ativado liberando porta 22</li>
+<li>Fail2ban instalado e monitorando SSH</li>
+</ul>
+</div>
+
+<div class="card">
+<h2>Problemas resolvidos</h2>
+<ul>
+<li>WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED</li>
+<li>Configuração sobrescrita por 50-cloud-init.conf</li>
+<li>Tentativas inválidas de login analisadas</li>
+</ul>
+</div>
+
+<div class="card">
+<h2>Comandos usados</h2>
+
+<code>ssh ubuntu@IP</code>
+<code>sudo systemctl status ssh</code>
+<code>sudo ufw enable</code>
+<code>sudo ufw status</code>
+<code>sudo apt install fail2ban -y</code>
+<code>sudo fail2ban-client status sshd</code>
+
+</div>
+
+<div class="card">
+<h2>Resultado Final</h2>
+<p>Servidor acessível por chave SSH, firewall ativo e proteção básica contra brute force configurada.</p>
+</div>
+
+</body>
+</html>
